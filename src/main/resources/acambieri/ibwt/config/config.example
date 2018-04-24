@@ -1,0 +1,43 @@
+# Text after a '#' is a comment
+#LOCKFILE must be readable and writeable, used to store the timestamp of the last execution
+LOCKFILE=./backup.lock
+#INCREMENTAL=[TRUE,true,FALSE,false] defines if the backup will be an incremental or
+# a full backup every time.
+INCREMENTAL=true
+
+# In incremental mode ROTATIONS is the number of executions before regenerate a new full backup
+# In standard mode this is the  number of old backups to keep before remove the oldest
+ROTATIONS=5
+# FREQUENCY and FREQUENCY_UNIT define how often the backup will be executed
+#Example:
+#FREQUENCY=1
+#FREQUENCY_UNIT=DAYS
+#will execute a backup once a day, the unit can be:
+# HOURS,HALF_DAYS,DAYS,WEEKS,MONTHS,YEARS
+#Please note: any unit defined in java.time.temporal.ChronoUnit can be -theoretically- specified, but it's recommended to use only
+# meaningful and realistic frequencies ( frequency < 1 minute aren't supported)
+FREQUENCY=1
+FREQUENCY_UNIT=DAYS
+# Write one BACKUPENTRY for each file or directory you want to backup
+#BACKUPENTRY=absolute_path_to_directory_or_file
+BACKUPENTRY=/home/ME/importantDir
+
+#DAEMON=true will leave the program running after a backup, waiting for the next schedule
+# If this feature is off the program will close after the backup and you have to schedule periodic runs on your system schedule, or remember to manually run.
+DAEMON=false
+
+#BACKUPDIR
+#Google Drive backup method: the directory in your google drive where the backups will be stored
+#Local backup method: the directory on the filesystem where the backups will be stored;
+BACKUPDIR=backups
+
+TMPFOLDER=./tmp
+# The backup method, can be:
+# DRIVE , to use Google Drive
+# LOCAL , to use a folder on your filesystem
+BACKUPMETHOD=LOCAL
+
+#The compression method, can be:
+# ZIP , creates a .zip file
+# XZ , creates a tar.xz file
+COMPRESSIONMETHOD=ZIP
