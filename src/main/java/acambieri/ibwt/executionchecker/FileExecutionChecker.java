@@ -65,7 +65,7 @@ public class FileExecutionChecker implements ExecutionChecker {
 
     @Override
     public boolean incrementalNeeded(long lastModified) {
-        return lastModified > lastExec;
+        return lastModified > lockFile.lastModified();
     }
 
     @Override
@@ -76,7 +76,7 @@ public class FileExecutionChecker implements ExecutionChecker {
         try{
             FileWriter file;
             BufferedWriter writer = new BufferedWriter(file=new FileWriter(lockFile));
-            writer.write(String.valueOf(nextSchedule));
+            writer.write(String.valueOf(lastExec));
             writer.close();
             file.close();
         }
