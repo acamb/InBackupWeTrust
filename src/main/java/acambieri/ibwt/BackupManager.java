@@ -34,7 +34,7 @@ public class BackupManager implements Runnable{
             List<File> oldFiles=null;
             //Used only to force a full backup in incremental mode
             boolean fullBackupNeeded=false;
-            if(checker.executionNeeded()){
+            if(Configuration.getIstance().isDaemon() || checker.executionNeeded()){
                 DestinationConnector destination = ConnectorFactory.getConnector(Configuration.getIstance().getBackupMethod());
                 //Remove the older rotation if needed
                 if(destination.listBackups().size() > Configuration.getIstance().getRotation()){
