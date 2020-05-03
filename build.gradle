@@ -1,11 +1,24 @@
 
 plugins {
-    id 'java'
+    //id 'java'
     id 'groovy'
+   // id 'java'
 }
 
 repositories {
     mavenCentral()
+}
+
+sourceSets {
+    main {
+        groovy {
+            // override the default locations, rather than adding additional ones
+            srcDirs = ['src/main/groovy', 'src/main/java']
+        }
+        java {
+            srcDirs = [] // don't compile Java code twice
+        }
+    }
 }
 
 dependencies {
@@ -22,6 +35,15 @@ dependencies {
 
 }
 
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'acambieri.ibwt.MainClass'
+    }
+    archiveFileName = "${project.name}.jar"
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
 group = 'acambieri.ibwt'
-version = '1.0-SNAPSHOT'
+version = '2'
 sourceCompatibility = '1.8'

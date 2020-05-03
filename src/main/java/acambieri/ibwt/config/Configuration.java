@@ -30,6 +30,8 @@ public class Configuration {
     private File tmpFolder;
     private BackupMethod backupMethod;
     private CompressionMethod compressionMethod = CompressionMethod.ZIP;
+    private boolean enableScripts;
+    private String preBackupScriptsDir;
 
     private Configuration(){
         backupList = new ArrayList<>();
@@ -195,5 +197,21 @@ public class Configuration {
     
     public CompressionMethod getCompressionMethod() {
         return compressionMethod;
+    }
+
+    public boolean isEnableScripts() {
+        return enableScripts;
+    }
+
+    public void setEnableScripts(String enableScripts) {
+        this.enableScripts = enableScripts != null && "true".equals(enableScripts.toLowerCase());
+    }
+
+    public String getPreBackupScriptsDir() {
+        return preBackupScriptsDir;
+    }
+
+    public void setPreBackupScriptsDir(String preBackupScriptsDir) {
+        this.preBackupScriptsDir = preBackupScriptsDir;
     }
 }

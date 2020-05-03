@@ -16,7 +16,9 @@ public enum ConfigTokens {
     BACKUPENTRY("backupEntry"),
     TMPFOLDER("tmpFolder"),
     BACKUPMETHOD("backupMethod"),
-    COMPRESSIONMETHOD("compressionMethod");
+    COMPRESSIONMETHOD("compressionMethod"),
+    ENABLE_SCRIPTS("enableScripts"),
+    PRE_BACKUP_SCRIPTS_DIR("preBackupScriptsDir");
 
     private String property;
 

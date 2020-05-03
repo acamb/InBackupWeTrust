@@ -10,6 +10,7 @@ import acambieri.ibwt.engines.CompressionMethod;
 import acambieri.ibwt.engines.ZipEngine;
 import acambieri.ibwt.executionchecker.ExecutionChecker;
 import acambieri.ibwt.executionchecker.FileExecutionChecker;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -49,7 +50,16 @@ public class BackupManager implements Runnable{
                         fullBackupNeeded=true;
                     }
                 }
-                //In this way we create a .zip for each backup entry
+                if(Configuration.getIstance().isEnableScripts()){
+                    try {
+                        ScriptManager scriptManager = new ScriptManager(Configuration.getIstance().getPreBackupScriptsDir());
+                        scriptManager.runScripts();
+                    }
+                    catch(Exception ex){
+                        LoggerFactory.getLogger(getClass()).error("Error running pre-backup scripts:" + ex.getMessage());
+                    }
+                }
+                //In this way we create a compressed file for each backup entry
                 for (File f : Configuration.getIstance().getBackupList()){
                     CompressionEngine compressor = CompressionEngineFactory.getEngine(Configuration.getIstance().getCompressionMethod(),checker);
                     compressor.init(f,fullBackupNeeded);

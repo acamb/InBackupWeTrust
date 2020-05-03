@@ -44,6 +44,6 @@ COMPRESSIONMETHOD=ZIP
 
 #Pre backup scripts directory
 # .groovy files in this directory will be executed in alphabetical order,
-# scripts must contain a run() method that will be executed via GroovyShell.
+# scripts must contain a runScript() method that will be executed via GroovyShell.
 ENABLE_SCRIPTS=true
 PRE_BACKUP_SCRIPTS_DIR=./scripts
