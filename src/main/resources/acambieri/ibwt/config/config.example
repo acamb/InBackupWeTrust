@@ -44,6 +44,6 @@ COMPRESSIONMETHOD=ZIP
 
 #Pre backup scripts directory
 # .groovy files in this directory will be executed in alphabetical order,
-# scripts must contain a runScript() method that will be executed via GroovyShell.
-ENABLE_SCRIPTS=true
+# scripts will be executed via GroovyShell and can grab deps via @Grab and Grapes (PLEASE use only yours and don't trust scripts on the internet!)
+ENABLE_SCRIPTS=false
 PRE_BACKUP_SCRIPTS_DIR=./scripts
