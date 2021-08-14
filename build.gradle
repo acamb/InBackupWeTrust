@@ -58,5 +58,5 @@ task fatJar(type: Jar) {
 }
 
 group = 'acambieri.ibwt'
-version = '2'
+version = '3'
 sourceCompatibility = '1.8'
