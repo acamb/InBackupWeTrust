@@ -1,5 +1,4 @@
-package acambieri.ibwt.tests;
-
+/*
 import acambieri.ibwt.BackupManager;
 import acambieri.ibwt.config.Configuration;
 import acambieri.ibwt.connectors.ConnectorFactory;
@@ -19,10 +18,11 @@ import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.time.temporal.ChronoUnit;
 
-/**
+*
  * @author andrea AC
  *         Date: 22/09/2016
- */
+
+
 public class ExecutionAndRotationTest {
 
     @Test
@@ -110,3 +110,4 @@ public class ExecutionAndRotationTest {
     }
 
 }
+*/

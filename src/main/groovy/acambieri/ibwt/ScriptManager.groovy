@@ -20,11 +20,10 @@ class ScriptManager {
             log.info("Executing ${file.name}...")
             GroovyShell shell = new GroovyShell()
             try {
-                def script = shell.parse(file)
-                script.runScript()
+                def script = shell.evaluate(file)
             }
             catch(Exception ex){
-                log.error("Error executing ${file.name}: ${ex.getMessage()}")
+                log.error("Error executing ${file.name}: ${ex.getMessage()} - ${Utils.exceptionToString(ex)}")
             }
             finally {
                 log.info("${file.name} finished")

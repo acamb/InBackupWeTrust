@@ -1,15 +1,16 @@
-package acambieri.ibwt.tests;
-
+/*
 import acambieri.ibwt.connectors.gdrive.GoogleDriveDestination;
 import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
 
+*/
 /**
  * @author andrea AC
  *         Date: 14/02/2017
- */
+ *//*
+
 public class GDriveTest {
 
     @Test
@@ -22,3 +23,4 @@ public class GDriveTest {
         }
     }
 }
+*/
