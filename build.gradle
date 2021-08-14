@@ -33,7 +33,7 @@ test{
 
 dependencies {
     compile group: 'org.codehaus.groovy', name: 'groovy-all', version: '3.0.3'
-    runtime group: 'org.apache.ivy', name: 'ivy', version: '2.5.0'
+    compile group: 'org.apache.ivy', name: 'ivy', version: '2.5.0'
     compile group: 'org.kamranzafar', name: 'jtar', version: '2.3'
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
     compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
